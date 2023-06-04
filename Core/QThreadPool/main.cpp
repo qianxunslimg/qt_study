@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QThreadPool pool;
     pool.setMaxThreadCount(3);
 
-    for(int i = 0; i < 20; i++)
+    for (int i = 0; i < 20; i++)
     {
         pool.start(new PrintTask());
     }

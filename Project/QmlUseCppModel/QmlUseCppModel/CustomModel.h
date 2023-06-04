@@ -1,7 +1,7 @@
 /** @file   CustomModel.h
- * 
  *
- *  @brief  ×Ô¶¨Òåmodel
+ *
+ *  @brief  ï¿½Ô¶ï¿½ï¿½ï¿½model
  *  @note
  *  @author lesliefish
  *  @date   2019/11/07
@@ -13,9 +13,8 @@
 struct Student
 {
     QString strName;
-    int iAge{ 0 };
+    int iAge{0};
 };
-
 
 class CustomModel : public QAbstractListModel
 {
@@ -27,11 +26,11 @@ public:
 
 public:
     // add
-    Q_INVOKABLE void insert(int index, const Student& student);
+    Q_INVOKABLE void insert(int index, const Student &student);
     // remove
     Q_INVOKABLE void remove(int index);
     // update
-    Q_INVOKABLE void update(int index, const Student& student);
+    Q_INVOKABLE void update(int index, const Student &student);
 
     int count() const;
 

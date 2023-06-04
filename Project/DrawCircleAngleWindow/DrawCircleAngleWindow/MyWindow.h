@@ -5,15 +5,15 @@
 
 enum Type
 {
-    LeftTop = 0, // вСио╫гт╡╫г
-    RightTop,    // срио╫гт╡╫г
-    LeftBottom,  // вСоб╫гт╡╫г
-    RightBottom, // сроб╫гт╡╫г
-    Top,         // иоа╫╦Жт╡╫г
-    Bottom,      // оба╫╦Жт╡╫г
-    Left,        // вСа╫╦Жт╡╫г
-    Right,       // сра╫╦Жт╡╫г
-    All          // кд╦Ж╫гт╡╫г
+    LeftTop = 0, // О©╫О©╫О©╫о╫О©╫т╡О©╫О©╫
+    RightTop,    // О©╫О©╫О©╫о╫О©╫т╡О©╫О©╫
+    LeftBottom,  // О©╫О©╫О©╫б╫О©╫т╡О©╫О©╫
+    RightBottom, // О©╫О©╫О©╫б╫О©╫т╡О©╫О©╫
+    Top,         // О©╫О©╫О©╫О©╫О©╫О©╫т╡О©╫О©╫
+    Bottom,      // О©╫О©╫О©╫О©╫О©╫О©╫т╡О©╫О©╫
+    Left,        // О©╫О©╫О©╫О©╫О©╫О©╫т╡О©╫О©╫
+    Right,       // О©╫О©╫О©╫О©╫О©╫О©╫т╡О©╫О©╫
+    All          // О©╫д╦О©╫О©╫О©╫т╡О©╫О©╫
 };
 
 class MyWindow : public QWidget
@@ -27,10 +27,10 @@ public:
     void setType(Type t);
 
 protected:
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void paintEvent(QPaintEvent *event);
 
 private:
     Ui::MyWindowClass ui;
 
-    Type m_type{ All };
+    Type m_type{All};
 };

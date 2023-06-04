@@ -17,5 +17,4 @@ int CustomModel::rowCount(const QModelIndex &parent /*= QModelIndex()*/) const
 
 QVariant CustomModel::data(const QModelIndex &index, int role /*= Qt::DisplayRole*/) const
 {
-
 }

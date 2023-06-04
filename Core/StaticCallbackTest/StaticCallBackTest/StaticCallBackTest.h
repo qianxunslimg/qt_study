@@ -1,5 +1,5 @@
 /** @file   StaticCallBackTest.h
- *  @brief  ¾²Ì¬»Øµ÷º¯Êý·ÃÎÊÀà³ÉÔ±±äÁ¿²âÊÔdemo
+ *  @brief  ï¿½ï¿½Ì¬ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½demo
  *  @note
  *  @author lesliefish
  *  @date   2019/03/22
@@ -11,14 +11,14 @@
 #if defined _WIN32 || defined _WIN64
 #define CALLBACK __stdcall
 #elif defined __linux__ || defined __APPLE__
-#define CALLBACK  
+#define CALLBACK
 #endif
 
-// ¶¨Òå»Øµ÷º¯ÊýÀàÐÍ
-typedef void (CALLBACK *CALLBACK_FUNC)(const char* str, void *pUserData);
+// ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+typedef void(CALLBACK *CALLBACK_FUNC)(const char *str, void *pUserData);
 
-// »Øµ÷´«Èë½Ó¿Ú
-void setCallBackFunc(CALLBACK_FUNC pFuncCallBack, void* data = nullptr);
+// ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
+void setCallBackFunc(CALLBACK_FUNC pFuncCallBack, void *data = nullptr);
 
 class StaticCallBackTest : public QObject
 {
@@ -28,16 +28,16 @@ public:
     StaticCallBackTest(QObject *parent = Q_NULLPTR);
 
 public:
-    // ¾²Ì¬ÀàÖ¸Õë
-    static StaticCallBackTest* s_this;
-    // ¾²Ì¬º¯Êý ¹©doSomething()µ÷ÓÃ
+    // ï¿½ï¿½Ì¬ï¿½ï¿½Ö¸ï¿½ï¿½
+    static StaticCallBackTest *s_this;
+    // ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½doSomething()ï¿½ï¿½ï¿½ï¿½
     static void CALLBACK startFunc(const char *str, void *pData);
 
 public:
-    // Æô¶¯ 
+    // ï¿½ï¿½ï¿½ï¿½
     void start();
 
 signals:
-    // ¶ÔÏóÐÅºÅ
-    void signalTest(const std::string& str);
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½
+    void signalTest(const std::string &str);
 };

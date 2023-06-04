@@ -8,64 +8,64 @@ class MainScene : public QGraphicsScene
 {
 	Q_OBJECT
 
-	// Ö§¼Ü»ù±¾²ÎÊý
+	// Ö§ï¿½Ü»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 public:
 	MainScene(QObject *parent = nullptr);
 	~MainScene();
-	// »ú¹ñÄ£ÐÍ
+	// ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	void setFrontCabinet(QRectF rect);
-	// LEDµ¥Ôª
+	// LEDï¿½ï¿½Ôª
 	void setLEDUnit(QRectF rect, int number, bool isVertical);
-	// LCDÕûÌåÏî
+	// LCDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	QGraphicsItem* addLCDPart(QRectF rect, int rows, int columns);
-	// LED´ø·â°å ÊúÅÅ ×ó
+	// LEDï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	QGraphicsItem* addVerticalLEDWithBoard(QRectF rect, int ledColumns, bool isLeft);
 
-	// LED´ø·â°å ºáÅÅ
+	// LEDï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	QGraphicsItem* addHorizontalLEDWithBoard(QRectF rect, int topRows, int ledWidth, int ledHeight);
 	
-	//  Ìí¼Ó»ú¹ñ
+	//  ï¿½ï¿½ï¿½Ó»ï¿½ï¿½ï¿½
 	QGraphicsItem* addCabinet(QRectF rect, int cabinetUnitWidth, int cabinetUnitHeight);
 
-	// Ìí¼Ó×óÉÏ½ÇLED LCDÐÅÏ¢
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½LED LCDï¿½ï¿½Ï¢
 	QGraphicsItem* addLEDAndLCDInfo(QRectF rect);
 
-	// Ìí¼ÓÓÒÉÏ½ÇÎÄ×ÖÃèÊöÐÅÏ¢
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	QGraphicsItem* addRightTopTextInfo(QRectF rect);
 
 
-	// Ìí¼Ó±ê³ß  ºáÏò±ê³ß
+	// ï¿½ï¿½ï¿½Ó±ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	QGraphicsItem* addHorizontalScaleplate(QRectF rect);
 	
-	// Ìí¼Ó±ê³ß  ´¹Ö±±ê³ß
+	// ï¿½ï¿½ï¿½Ó±ï¿½ï¿½  ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
 	QGraphicsItem* addVerticalScaleplate(QRectF rect);
 private:
-	QGraphicsRectItem* m_LEDUnit;   // LEDµ¥Ôª
-	QGraphicsRectItem* m_LCDUnit;   // LCDµ¥Ôª
-	QGraphicsRectItem* m_frontCabinet; // »ú¹ñÄ£ÐÍ
+	QGraphicsRectItem* m_LEDUnit;   // LEDï¿½ï¿½Ôª
+	QGraphicsRectItem* m_LCDUnit;   // LCDï¿½ï¿½Ôª
+	QGraphicsRectItem* m_frontCabinet; // ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 
 
-	qreal m_bashouHeight = 12;			// ÃÅ°ÑÊÖ¸ß¶È
-	qreal m_bashouWidth = 4;		// ÃÅ°ÑÊÖ¿í¶È
+	qreal m_bashouHeight = 12;			// ï¿½Å°ï¿½ï¿½Ö¸ß¶ï¿½
+	qreal m_bashouWidth = 4;		// ï¿½Å°ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½
 
-	// LCD²¿·Ö   
-	qreal m_lcdPosX = 0;		// LCD×óÉÏ½ÇÆðÊ¼µãÎ»ÖÃ
-	qreal m_lcdPosY = 0;		// LCD×óÉÏ½ÇÆðÊ¼µãyÎ»ÖÃ
-	qreal m_lcdUnitWidth = 100;   // LCDµ¥Ôª¿í¶È
-	qreal m_lcdUnitHeight = 50;   // LCDµ¥Ôª¸ß¶È
-	int   m_lcdRows = 2;			// LCDÐÐÊý
-	int   m_lcdColumns = 3;		// LCDÁÐÊý
-	int   m_leftLEDColumns = 1;	// ×ó±ßLEDÁÐÊý
-	int   m_rightLEDColumns = 2;	// ÓÒ±ßLEDÁÐÊý
-	int   m_topLEDRows = 2;		// ¶¥²¿LEDÐÐÊý
-	qreal m_ledUnitWidth = 25;	// LED¿í¶È
-	qreal m_ledUnitHeight = 15;	// LED¸ß¶È
-	qreal m_boardThick = 5;	    // ·â°åºñ¶È
-	qreal m_cabinetUnitWidth = 90;	// »ú¹ñÖÐ¼äµ¥Ôª¿í¶È
-	qreal m_cabinetUnitHeight = 45;// »ú¹ñÖÐ¼äµ¥Ôª¸ß¶È
-	qreal m_cabinetTopBoardThick = 5;// »ú¹ñÉÏÃæ·â°åµÄºñ¶È
-	qreal m_cabinetSideBoardThick = 5;// »ú¹ñÖ®¼ä·â°åµÄºñ¶È
-	qreal m_cabinetBottomBoardThick = 5;// »ú¹ñµ×²¿·â°åµÄºñ¶È
+	// LCDï¿½ï¿½ï¿½ï¿½   
+	qreal m_lcdPosX = 0;		// LCDï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Î»ï¿½ï¿½
+	qreal m_lcdPosY = 0;		// LCDï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½yÎ»ï¿½ï¿½
+	qreal m_lcdUnitWidth = 100;   // LCDï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½
+	qreal m_lcdUnitHeight = 50;   // LCDï¿½ï¿½Ôªï¿½ß¶ï¿½
+	int   m_lcdRows = 2;			// LCDï¿½ï¿½ï¿½ï¿½
+	int   m_lcdColumns = 3;		// LCDï¿½ï¿½ï¿½ï¿½
+	int   m_leftLEDColumns = 1;	// ï¿½ï¿½ï¿½LEDï¿½ï¿½ï¿½ï¿½
+	int   m_rightLEDColumns = 2;	// ï¿½Ò±ï¿½LEDï¿½ï¿½ï¿½ï¿½
+	int   m_topLEDRows = 2;		// ï¿½ï¿½ï¿½ï¿½LEDï¿½ï¿½ï¿½ï¿½
+	qreal m_ledUnitWidth = 25;	// LEDï¿½ï¿½ï¿½ï¿½
+	qreal m_ledUnitHeight = 15;	// LEDï¿½ß¶ï¿½
+	qreal m_boardThick = 5;	    // ï¿½ï¿½ï¿½ï¿½ï¿½
+	qreal m_cabinetUnitWidth = 90;	// ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼äµ¥Ôªï¿½ï¿½ï¿½ï¿½
+	qreal m_cabinetUnitHeight = 45;// ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼äµ¥Ôªï¿½ß¶ï¿½
+	qreal m_cabinetTopBoardThick = 5;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½
+	qreal m_cabinetSideBoardThick = 5;// ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½
+	qreal m_cabinetBottomBoardThick = 5;// ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½
 };
 #endif // MAINSCENE_H

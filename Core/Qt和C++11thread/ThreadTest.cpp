@@ -6,45 +6,27 @@ ThreadTest::ThreadTest(QWidget *parent)
 {
     ui.setupUi(this);
 
-    // °ó¶¨ĞÅºÅ  µã»÷°´Å¥ºóÖ´ĞĞtestº¯Êı
+    // ï¿½ï¿½ï¿½Åºï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½Ö´ï¿½ï¿½testï¿½ï¿½ï¿½ï¿½
     connect(ui.pushButton, &QPushButton::clicked, [&]
-    {
-        test(); 
-    });
+            { test(); });
 }
 
-/** @fn     ThreadTest::test
- *  @brief  ²âÊÔº¯Êı  µã»÷½çÃæ°´Å¥ºóÖ´ĞĞ
- *  @return void 
- */
 void ThreadTest::test()
 {
-    // ¼ÙÉèĞèÒªÖªµÀÏß³ÌµÄÖ´ĞĞ½á¹ûrunResult
-    bool runResult{ false };
+    bool runResult{false};                                               // å£°æ˜å¹¶åˆå§‹åŒ–ä¸€ä¸ªå¸ƒå°”å‹å˜é‡ runResultï¼Œåˆå§‹å€¼ä¸º false
+    QEventLoop loop;                                                     // åˆ›å»ºä¸€ä¸ªäº‹ä»¶å¾ªç¯å¯¹è±¡ loop
+    connect(this, &ThreadTest::signalRunOver, &loop, &QEventLoop::quit); // å°† signalRunOver ä¿¡å·è¿æ¥åˆ° loop çš„ quit() æ§½å‡½æ•°
 
-    // ¶¨ÒåÒ»¸öloop¶ÔÏó
-    QEventLoop loop;
-    // °ó¶¨ĞÅºÅ  ÔÚloopÊÕµ½½çÃæµÄsignalRunOverĞÅºÅºó£¬ÍË³öÑ­»·
-    connect(this, &ThreadTest::signalRunOver, &loop, &QEventLoop::quit);
-    
-    // ÉùÃ÷Ò»¸öÏß³Ì´¦ÀíÈÎÎñ  ´«ÈëÄäÃûº¯Êı  ÔÚÉùÃ÷ºóÖ±½Ó¿ªÆôÒ»¸öÏß³ÌÖ´ĞĞÄäÃûº¯ÊıÌå
-    std::thread testThread([&]
+    std::thread testThread([&] // åˆ›å»ºä¸€ä¸ªæ–°çš„çº¿ç¨‹ï¼ŒLambda å‡½æ•°ä½œä¸ºçº¿ç¨‹çš„æ‰§è¡Œä½“
+                           {
+                               runResult = true;     // åœ¨æ–°çº¿ç¨‹ä¸­å°† runResult çš„å€¼è®¾ä¸º true
+                               emit signalRunOver(); // å‘é€ signalRunOver ä¿¡å·ï¼Œé€šçŸ¥ä¸»çº¿ç¨‹æ‰§è¡Œç»“æŸ
+                           });
+
+    testThread.detach(); // åˆ†ç¦»æ–°çº¿ç¨‹ï¼Œä½¿å…¶åœ¨åå°è¿è¡Œ
+    loop.exec();         // æ‰§è¡Œäº‹ä»¶å¾ªç¯ï¼Œç­‰å¾… signalRunOver ä¿¡å·è¢«è§¦å‘
+    if (!runResult)      // å¦‚æœ runResult çš„å€¼ä¸º falseï¼ˆæœªè¢«ä¿®æ”¹ï¼‰ï¼Œåˆ™æ‰§è¡Œä»¥ä¸‹ä»£ç å—
     {
-        // runResult = Á¬½ÓÍøÂç ¡¢¿½±´ÎÄ¼ş¡¢µÈµÈºÄÊ±²Ù×÷  Êµ¼ÊÖ´ĞĞµÄÈÎÎñ·ÅÔÚÕâ¸öÎ»ÖÃÖ´ĞĞ
-
-        runResult = true;
-        // Ö´ĞĞÍê³Éºó ·¢³öĞÅºÅ  ¸æÖªÏß³ÌÖ´ĞĞ½áÊø
-        emit signalRunOver();
-    });
-    // ·ÖÀëÏß³Ì  ÈÃÆä×ÔÉú×ÔÃğ(Ïú»ÙÏß³Ì)
-    testThread.detach();
-
-    // ÔÚ´Ë´¦Ö´ĞĞÑ­»·  µÈ´ıÏß³ÌµÄÖ´ĞĞ½á¹û
-    loop.exec();
-
-    // ÒÔÉÏÏß³ÌÖ´ĞĞÍê³ÉºóÖ´ĞĞÒÔÏÂ´úÂë
-    if (!runResult)
-    {
-        // ´¦Àí½á¹û  Õû¸ö¹ı³Ì½çÃæ²»»á¿¨ËÀ
+        // è¿™é‡Œå¯ä»¥æ·»åŠ ç›¸åº”çš„å¤„ç†é€»è¾‘
     }
 }

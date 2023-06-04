@@ -59,6 +59,6 @@ int main(int argc, char *argv[])
     }
 
     sc.Quit();
-    qDebug() << "sent." ;
+    qDebug() << "sent.";
     return a.exec();
 }

@@ -1,9 +1,9 @@
 /** @file   ThreadTest.h
-  * 
-  * @brief  使用std::thread线程解决Qt界面卡死问题
-  * @author lesliefish
-  * @date   2018/08/31
-  */
+ *
+ * @brief  使锟斤拷std::thread锟竭程斤拷锟絈t锟斤拷锟芥卡锟斤拷锟斤拷锟斤拷
+ * @author lesliefish
+ * @date   2018/08/31
+ */
 #pragma once
 
 #include <QPushButton>
@@ -19,11 +19,11 @@ public:
     explicit ThreadTest(QWidget *parent = Q_NULLPTR);
 
 signals:
-    // 线程结束信号
+    // 锟竭程斤拷锟斤拷锟脚猴拷
     void signalRunOver();
 
 private:
-    // 测试函数
+    // 锟斤拷锟皆猴拷锟斤拷
     void test();
 
 private:

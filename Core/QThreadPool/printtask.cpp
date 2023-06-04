@@ -10,11 +10,9 @@ PrintTask::PrintTask()
 
 PrintTask::~PrintTask()
 {
-
 }
-
 
 void PrintTask::run()
 {
-    cout << "PrintTask run ±»µ÷ÓÃ£¬µ÷ÓÃÏß³ÌIDÎª£º" << QThread::currentThread() << endl;
+    cout << "PrintTask run ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½IDÎªï¿½ï¿½" << QThread::currentThread() << endl;
 }

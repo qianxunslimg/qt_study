@@ -19,9 +19,9 @@ namespace animation
     }
 
     void MainWindow::initConnection()
-    { 
-        connect(ui.pushButton, &QPushButton::clicked, [&] 
-        {
+    {
+        connect(ui.pushButton, &QPushButton::clicked, [&]
+                {
             static int resizeValue{100};
             resizeValue = -resizeValue;
             QPropertyAnimation* animation = new QPropertyAnimation(this, "geometry");
@@ -30,9 +30,6 @@ namespace animation
             //animation->setEndValue(QRect(pos().x() + resizeValue, pos().y() + resizeValue, width(), height()));
             animation->setEndValue(QRect(pos().x() + width(), pos().y(), 0, height()));
             animation->setEasingCurve(QEasingCurve::Linear);
-            animation->start(QAbstractAnimation::DeleteWhenStopped);
-        });
-
+            animation->start(QAbstractAnimation::DeleteWhenStopped); });
     }
 }
-

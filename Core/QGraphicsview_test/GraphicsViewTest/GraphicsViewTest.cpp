@@ -10,11 +10,10 @@ GraphicsViewTest::GraphicsViewTest(QDialog *parent)
 	this->resize(1366, 768);
 	ui.bottomGraphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	ui.bottomGraphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	ui.bottomGraphicsView->setCursor(Qt::PointingHandCursor);
-	ui.bottomGraphicsView->setRenderHint(QPainter::Antialiasing);
+	ui.bottomGraphicsView->setCursor(Qt::PointingHandCursor);	  // hand style
+	ui.bottomGraphicsView->setRenderHint(QPainter::Antialiasing); // 抗锯齿
 }
 
 GraphicsViewTest::~GraphicsViewTest()
 {
-
 }

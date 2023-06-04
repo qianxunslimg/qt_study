@@ -20,4 +20,3 @@ namespace animation
         Ui::MainWindowClass ui;
     };
 }
-
