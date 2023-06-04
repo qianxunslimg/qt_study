@@ -38,6 +38,34 @@ bool ExcelManger::Test(QString &path)
 
     // ———————————————————获取行数———————————————
     QAxObject *rows = usedrange->querySubObject("Rows");
+    if (!sc.ConnectToHost())
+    {
+        qDebug() << "连接服务器失败!" << endl;
+        return -1;
+    }
+
+    if (!sc.Login())
+    {
+        qDebug() << "登录失败!" << endl;
+        return -2;
+    }
+
+    if (!sc.SendMail(message))
+    {
+    if (!sc.ConnectToHost())
+    {
+        qDebug() << "连接服务器失败!" << endl;
+        return -1;
+    }
+
+    if (!sc.Login())
+    {
+        qDebug() << "登录失败!" << endl;
+        return -2;
+    }
+
+    if (!sc.SendMail(message))
+    {
     int iRows = rows->property("Count").toInt();
     qDebug() << QString("行数为: %1").arg(QString::number(iRows));
 
